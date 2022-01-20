@@ -1,0 +1,34 @@
+version: '3.2'
+
+services:
+  logstash:
+    image: grafana/logstash-output-loki
+    container_name: logstash-loki
+    restart: always
+    environment:
+      - LOKI_URL
+      - LOKI_USERNAME
+      - LOKI_PASSWORD
+      - LS_JAVA_OPTS=-Xmx256m -Xms256m
+    volumes:
+      - type: bind
+        source: ./config/logstash.yml
+        target: /usr/share/logstash/config/logstash.yml
+        read_only: true
+      - type: bind
+        source: ./pipeline
+        target: /usr/share/logstash/pipeline
+        read_only: true
+      - type: bind
+        source: ./patterns
+        target: /usr/share/logstash/patterns
+        read_only: true
+
+    ports:
+      - "514:10514/tcp"
+      - "514:10514/udp"
+      - "10515:10515/tcp"
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
