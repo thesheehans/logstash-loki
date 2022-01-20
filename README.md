@@ -13,7 +13,7 @@ If you want to send to GrafanaCloud you would use https://logs-prod-us-central1.
 
 # Credentials
 
-While logged in to your Grafana account, navigate to the Grafana Cloud Portal, which should be located at https://grafana.com/orgs/&lt;your-organization-name&gt;, and complete the following steps.
+While logged in to your Grafana account, navigate to the Grafana Cloud Portal, which should be located at `https://grafana.com/orgs/your-organization-name`, and complete the following steps.
 
 ## LOKI_USERNAME
 
