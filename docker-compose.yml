@@ -12,15 +12,15 @@ services:
       - LS_JAVA_OPTS=-Xmx256m -Xms256m
     volumes:
       - type: bind
-        source: ./config/logstash.yml
+        source: /data/logstash-loki/config/logstash.yml
         target: /usr/share/logstash/config/logstash.yml
         read_only: true
       - type: bind
-        source: ./pipeline
+        source: /data/logstash-loki/pipeline
         target: /usr/share/logstash/pipeline
         read_only: true
       - type: bind
-        source: ./patterns
+        source: /data/logstash-loki/patterns
         target: /usr/share/logstash/patterns
         read_only: true
 
